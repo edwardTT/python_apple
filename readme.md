@@ -4,8 +4,6 @@
 - **pyecharts**
 - **pandas**
 
-![crossincode](../crossin-logo.png)
-
 ![](img/iPhone售价.png)
 
 ![](img/table.png)
