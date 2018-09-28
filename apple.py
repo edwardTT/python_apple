@@ -5,26 +5,26 @@
 
 
 # 获取年报文件
-import requests
-url = 'http://investor.apple.com/feed/SECFiling.svc/GetEdgarFilingList?apiKey=BF185719B0464B3CB809D23926182246&exchange=CIK&symbol=0000320193&formGroupIdList=1%2C4&excludeNoDocuments=true&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1'
-rsp = requests.get(url)
-data = rsp.json()
-data
+# import requests
+# url = 'http://investor.apple.com/feed/SECFiling.svc/GetEdgarFilingList?apiKey=BF185719B0464B3CB809D23926182246&exchange=CIK&symbol=0000320193&formGroupIdList=1%2C4&excludeNoDocuments=true&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1'
+# rsp = requests.get(url)
+# data = rsp.json()
+# data
 
 
 # In[61]:
 
 
 # 下载
-import urllib.request
-for year_data in data['GetEdgarFilingListResult']:
-    year = year_data['FilingDate'].split()[0].split('/')[-1]
-    for doc in year_data['DocumentList']:
-        if doc['DocumentType'] == 'XLS':
-            url_xls = doc['Url']
-            break
-    print(year, url_xls)
-    urllib.request.urlretrieve(url_xls, str(year) + '.xls')
+# import urllib.request
+# for year_data in data['GetEdgarFilingListResult']:
+#     year = year_data['FilingDate'].split()[0].split('/')[-1]
+#     for doc in year_data['DocumentList']:
+#         if doc['DocumentType'] == 'XLS':
+#             url_xls = doc['Url']
+#             break
+#     print(year, url_xls)
+#     urllib.request.urlretrieve(url_xls, str(year) + '.xls')
 
 
 # In[17]:
